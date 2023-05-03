@@ -15,7 +15,7 @@ const MapScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <MapView showsUserLocation initialRegion={initialRegion} style={styles.map}>
+      <MapView zoomControlEnabled showsUserLocation style={styles.map} initialRegion={initialRegion}>
         {markers.map((marker) => (
           <Marker
             key={marker.id}
