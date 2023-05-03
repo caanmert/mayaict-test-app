@@ -3,7 +3,6 @@ import React from "react";
 import { Marker } from "react-native-maps";
 import MapView from "react-native-map-clustering";
 import { useAppSelector } from "../../redux/hooks";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 const MapScreen = () => {
   const { initialRegion } = useAppSelector((state) => state.user);
@@ -14,32 +13,26 @@ const MapScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <MapView zoomControlEnabled showsUserLocation style={styles.map} initialRegion={initialRegion}>
-        {markers.map((marker) => (
-          <Marker
-            key={marker.id}
-            identifier={marker.id.toString()}
-            coordinate={{
-              latitude: parseFloat(marker.lat),
-              longitude: parseFloat(marker.lng),
-            }}
-            onPress={onMarkerPress}
-          />
-        ))}
-      </MapView>
-    </SafeAreaView>
+    <MapView zoomControlEnabled showsUserLocation style={styles.map} initialRegion={initialRegion}>
+      {markers.map((marker) => (
+        <Marker
+          key={marker.id}
+          identifier={marker.id.toString()}
+          coordinate={{
+            latitude: parseFloat(marker.lat),
+            longitude: parseFloat(marker.lng),
+          }}
+          onPress={onMarkerPress}
+        />
+      ))}
+    </MapView>
   );
 };
 
 export default MapScreen;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   map: {
-    width: "100%",
-    height: "100%",
+    flex: 1,
   },
 });

@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import type { Region } from "react-native-maps";
+import { Region } from "react-native-maps";
 
 interface UserState {
   initialRegion: Region;
@@ -7,10 +7,10 @@ interface UserState {
 
 const initialState: UserState = {
   initialRegion: {
-    latitude: 41.09997120315957,
-    longitude: 29.042493905509623,
-    latitudeDelta: 343,
-    longitudeDelta: 343,
+    latitude: 41.0999712031,
+    longitude: 29.0424939055,
+    latitudeDelta: 39.5,
+    longitudeDelta: 39.5,
   },
 };
 
